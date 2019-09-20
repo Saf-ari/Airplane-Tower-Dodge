@@ -37,32 +37,51 @@ function handleShipAnimation() {
   }
 }
 
-function RenderNewObject(context) {
+function RenderTowers(context) {
   var canvas = document.getElementById('canvas');
-  HandleNewObjectMovement();
-  context.fillRect(NEW_OBJECT.x, NEW_OBJECT.y, 100, 100);
+  HandleTowerMovement();
+  context.fillRect(TOWER1.x, 0, 75, TOWER1.height);
+  context.fillRect(TOWER1.x, TOWER1.height + 100, 75, GAME.canvas.height - TOWER1.height);
+  context.fillRect(TOWER2.x, 0, 75, TOWER2.height);
+  context.fillRect(TOWER2.x, TOWER2.height + 100, 75, GAME.canvas.height - TOWER2.height);
+  context.fillRect(TOWER3.x, 0, 75, TOWER3.height);
+  context.fillRect(TOWER3.x, TOWER3.height + 100, 75, GAME.canvas.height - TOWER3.height);
 }
 
-function HandleNewObjectMovement() {
-  NEW_OBJECT.x += 1;
-  NEW_OBJECT.y += 1;
+function HandleTowerMovement() {
+  if (TOWER1.x < -1 * TOWER1.width){
+    TOWER1.x = GAME.canvas.width;
+    TOWER1.height = Math.random() * GAME.canvas.height;
+  };
+  if (TOWER2.x < -1 * TOWER2.width){
+    TOWER2.x = GAME.canvas.width;
+    TOWER2.height = Math.random() * GAME.canvas.height;
+  };
+  if (TOWER3.x < -1 * TOWER3.width){
+    TOWER3.x = GAME.canvas.width;
+    TOWER3.height = Math.random() * GAME.canvas.height;
+  };
+  TOWER1.x -= 1;
+  TOWER2.x -= 1;
+  TOWER3.x -= 1;
 }
 
 function runGame() {
   var canvas = document.getElementById('mainCanvas');
   var context = canvas.getContext('2d');
+
   if (GAME.started) {
 
     // 1 - Reposition the objects
-    handleShipAnimation();
-    HandleNewObjectMovement();
+    //handleShipAnimation();
+    HandleTowerMovement();
 
     // 2 - Clear the CANVAS
     context.clearRect(0, 0, 600, 300);
 
     // 3 - Draw new items
-    RenderSpaceship(context);
-    RenderNewObject(context);
+    //RenderSpaceship(context);
+    RenderTowers(context);
 
   } else {
     context.font = "30px Arial";

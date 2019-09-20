@@ -16,7 +16,18 @@ var SPACE_SHIP = {
   }
 };
 
-var NEW_OBJECT = {
+var TOWER1 = {
+  width : 75,
   x : 0,
-  y : 0
+  height : 0
+};
+var TOWER2 = {
+  width : 75,
+  x : 0,
+  height : 0
+};
+var TOWER3 = {
+  width : 75,
+  x : 0,
+  height : 0
 };
