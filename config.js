@@ -7,13 +7,9 @@ var GAME = {
   level : 1
 };
 
-var SPACE_SHIP = {
-  initialized : false,
-  bullets : [],
-  latest : {
-    x : 0,
-    y : 0
-  }
+var AIRPLANE = {
+  x : 0,
+  y : 0
 };
 
 var TOWER1 = {
