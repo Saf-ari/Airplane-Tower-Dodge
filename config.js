@@ -9,7 +9,10 @@ var GAME = {
 
 var AIRPLANE = {
   x : 0,
-  y : 0
+  y : 0,
+  gravity : 0,
+  score : 0,
+  initialized : false
 };
 
 var TOWER1 = {
