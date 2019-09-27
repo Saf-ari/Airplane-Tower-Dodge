@@ -17,6 +17,15 @@ function renderTowers(context) {
   context.drawImage(top, TOWER3.x, 0, TOWER3.width, TOWER3.height);  //Render top tower 3
   context.drawImage(bottom, TOWER3.x, TOWER3.height + 100, TOWER3.width, GAME.canvas.height - (TOWER3.height + 100));//Render bottom tower 3
 }
+function renderAirplane(context){
+  var canvas = document.getElementById('canvas');
+  handleAirplaneMovement();
+  var plane = new Image(); //Get images from fill
+  if(AIRPLANE.x + AIRPLANE.width >= TOWER1.x && AIRPLANE.x <= TOWER1.x + TOWER1.width && )
+}
+function handleAirplaneMovement(){
+  if (AIRPLANE.)
+}
 function InitializeTowers(){
   TOWER1.x = GAME.canvas.width;  //Give initial x positions, evenly spaced across canvas, 1 canvas distance away from main canvas
   TOWER2.x = 4.0/3 * GAME.canvas.width + TOWER1.width/3.0;
@@ -42,6 +51,12 @@ function handleTowerMovement() {
   TOWER2.x -= 2;
   TOWER3.x -= 2;
 }
+function handleAirplaneMovement() {
+  document.addEventListener("space", moveUp);
+}
+function moveUp(){
+  AIRPLANE.y -= 25;
+}
 
 function runGame() {
   var canvas = document.getElementById('mainCanvas');
@@ -56,7 +71,7 @@ function runGame() {
     context.clearRect(0, 0, 600, 300);
 
     // 3 - Draw new items
-    //RenderAirplane(context);
+    renderAirplane(context);
     renderTowers(context);
 
   } else {

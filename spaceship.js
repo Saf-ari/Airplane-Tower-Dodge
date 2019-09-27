@@ -1,77 +1,28 @@
 
 // Populate a global variable for the spaceship
-function InitializeSpaceship() {
+function InitializeAirplane() {
   var canvas = document.getElementById('mainCanvas');
   var context = canvas.getContext('2d');
   context.scale(1,1);
-  SPACE_SHIP = {
-    x : 300,
-    y : 150,
-    rotation : 0,
-    health : 3,
-    positions : [
-      {
-        x : 0,
-       	y : 3
-      },
-      {
-        x : 2,
-       	y : -3
-      },
-      {
-        x : 0,
-       	y : 0
-      },
-      {
-        x : -2,
-       	y : -3
-      },
-      {
-        x : 0,
-       	y : 3
-      }
-    ],
-    latest : {
-        x : SPACE_SHIP.x,
-        y : SPACE_SHIP.y,
-    },
-    scale : 5,
-    speed : 3,
+  AIRPLANE = {
+    x : 100,
+    y : GAME.canvas.width / 2,
+    gravity : 1.5,
     initialized : true,
-    bullets : []
-  };
-}
-
-// Rotate rotates a point around
-// cx, cy   :   The central point
-// x, y     :   The coordinates of point to be rotatedPoint
-// angle    :   Angle in degrees of rotation
-function Rotate(cx, cy, x, y, angle) {
-    var radians = (Math.PI / 180) * angle,
-        cos = Math.cos(radians),
-        sin = Math.sin(radians),
-        nx = (cos * (x - cx)) + (sin * (y - cy)) + cx,
-        ny = (cos * (y - cy)) - (sin * (x - cx)) + cy;
-    return [nx, ny];
-}
-
-// RotateAroundOrigin
-// x, y     :   The coordinates of point to be rotatedPoint
-// angle    :   Angle in degrees of rotation
-function RotateAroundOrigin(x, y, angle) {
-  return Rotate(0, 0, x, y, angle);
-}
-
+    score : 0
+  }
 /**  RenderSpaceship
  *
  *  Renders all spaceship points after adjusting them for the rotation and position
  *    in space
  */
-function RenderSpaceship(context) {
+/*
+function RenderAirplane(context) {
   if (!SPACE_SHIP.initialized) {
     return;
   }
-
+  */
+/*
   // Move to the point where drawing will start
   var rotatedPoint = RotateAroundOrigin(
     SPACE_SHIP.positions[0].x,
@@ -94,6 +45,7 @@ function RenderSpaceship(context) {
       SPACE_SHIP.y + (rotatedPoint[1] * SPACE_SHIP.scale)
     );
   }
+  */
   context.lineWidth = 1;
   switch (SPACE_SHIP.health) {
     case 3:
